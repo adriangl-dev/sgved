@@ -1,14 +1,12 @@
 package com.tfm.sgved.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "ANSWERS")
@@ -22,5 +20,8 @@ public class Answer {
     private @Getter @Setter int id_question;
     @Column
     private @Getter @Setter String text;
-
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_question", insertable = false, updatable = false)
+    private Question question;
 }

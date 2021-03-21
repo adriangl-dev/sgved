@@ -23,7 +23,6 @@ public class SurveyService {
     {
         return surveyRepository.findById(id).get();
     }
-
     //obtener todas las encuestas
     public List<Survey> getAllSurveys()
     {
