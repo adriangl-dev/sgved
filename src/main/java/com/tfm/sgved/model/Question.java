@@ -18,6 +18,7 @@ import java.util.List;
 public class Question {
     @Id
     @Column (name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private @Getter @Setter int id;
     @Column
     private @Getter @Setter int id_survey;

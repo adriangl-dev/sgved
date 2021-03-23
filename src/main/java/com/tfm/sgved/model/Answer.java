@@ -15,6 +15,7 @@ import javax.persistence.*;
 public class Answer {
     @Id
     @Column
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private @Getter @Setter int id;
     @Column
     private @Getter @Setter int id_question;
