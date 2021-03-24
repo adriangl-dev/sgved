@@ -1,18 +1,17 @@
 package com.tfm.sgved.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "SURVEYS")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Survey {
     @Id
     @Column(name = "id")
@@ -26,5 +25,5 @@ public class Survey {
     private @Getter @Setter int participants_number;
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "survey")
-    private List<Question> questions;
+    private @Getter @Setter List<Question> questions;
 }

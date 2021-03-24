@@ -24,8 +24,7 @@ public class SurveyService {
         return surveyRepository.findById(id).get();
     }
     //obtener todas las encuestas
-    public List<Survey> getAllSurveys()
-    {
+    public List<Survey> getAllSurveys() {
         List<Survey> surveys = new ArrayList<Survey>();
         surveyRepository.findAll().forEach(survey -> surveys.add(survey));
         return surveys;

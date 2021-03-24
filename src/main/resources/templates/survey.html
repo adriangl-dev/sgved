@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Survey V2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/animate.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/style.css">
+
+<body>
+<div class="wrapper">
+    <div class="wizard-content-1 clearfix">
+        <div class="steps d-none position-absolute clearfix">
+            <ul class="tablist multisteps-form__progress">
+                <li class="multisteps-form__progress-btn ">
+
+                </li>
+                <li class="multisteps-form__progress-btn js-active current">
+
+                </li>
+                <li class="multisteps-form__progress-btn">
+
+                </li>
+            </ul>
+        </div>
+        <div class="step-inner-content clearfix position-relative">
+            <form class="multisteps-form__form" th:action="@{/survey/do}" id="wizard" method="POST" th:object="${survey}">
+                <div class="form-area position-relative">
+                    <div class="multisteps-form__panel" th:classappend="${iter.index == 0} ? 'js-active' : ''" data-animation="slideHorz" th:each="questions,iter : ${survey.questions}">
+                        <div class="wizard-forms position-relative">
+                            <div class="job-style-two-content d-flex">
+                                <div class="job-wizard-left-area position-relative">
+                                    <div class="job-wizard-left-text">
+                                        <h1 th:text="${survey.title}">SURVEY
+                                        </h1>
+                                        <p th:text="${survey.description}">Descripcion</p>
+                                    </div>
+                                    <span class="w-copyright position-absolute">©2020 BeWizard</span>
+                                </div>
+                                <div class="job-wizard-right-area survey-right-content-1">
+                                    <div class="jw-top-title">
+                                        <span th:text="${iter.index+1}+' of '+${iter.size}+' Answered'">1 of 5 Answered</span>
+                                        <h2 th:text="${questions.text}">¿Pregunta?</h2>
+                                    </div>
+                                    <div class="reccomend-selector">
+                                        <ul>
+                                            <li th:each="answer, iter2 : ${questions.answers}">
+                                                <label>
+                                                    <input type="radio" value="1" class="exp-option-box" checked="checked" th:field="*{questions[__${iter.index}__].answers[__${iter2.index}__].text}">
+                                                    <span class="exp-label" th:text="${answer.text}">Respuesta</span>
+                                                    <span class="checkmark-border"></span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" name="reccomend_select" value="Maybe" class="exp-option-box">
+                                                    <span class="exp-label">Maybe</span>
+                                                    <span class="checkmark-border"></span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="additional-reccomend">
+                                        <textarea placeholder="Additional message"></textarea>
+                                    </div>
+                                    <div class="actions">
+                                        <ul>
+                                            <li><span class="js-btn-prev" title="PREV">Previous Question</span></li>
+                                            <li><span class="js-btn-next" title="NEXT">Next Question</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- step 1 -->
+
+                    <!-- step 2 -->
+
+                    <!-- step 3 -->
+
+                    <!-- step 4 -->
+                    <div class="multisteps-form__panel" data-animation="slideHorz">
+                        <div class="wizard-forms">
+                            <div class="job-style-two-content d-flex">
+                                <div class="job-wizard-left-area position-relative">
+                                    <div class="job-wizard-left-text">
+                                        <h1>SURVEY
+                                        </h1>
+                                        <p>An mei sadipscing dissentiet, eos ea partem viderer facilisi. Brute nostrud democritum in vis, nam ei erat zril mediocrem. No postea diceret vix.</p>
+                                    </div>
+                                    <span class="w-copyright position-absolute">©2020 BeWizard</span>
+                                </div>
+                                <div class="job-wizard-right-area survey-right-content-5">
+                                    <div class="survey-reccomend-area-3">
+                                        <div class="jw-top-title">
+                                            <h2>Please fill with your details</h2>
+                                        </div>
+                                        <div class="details-form-area">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-input-inner position-relative has-float-label">
+                                                        <input type="text" name="name" placeholder="First Name" class="required form-control">
+                                                        <div class="icon-bg text-center">
+                                                            <i class="fas fa-user"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-input-inner position-relative has-float-label">
+                                                        <input type="text" name="name" placeholder="Last Name" class="form-control">
+                                                        <div class="icon-bg text-center">
+                                                            <i class="fas fa-user"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-input-inner position-relative has-float-label">
+                                                        <input type="email" name="email" placeholder="Email *" class="required form-control">
+                                                        <div class="icon-bg text-center">
+                                                            <i class="fas fa-envelope"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-input-inner position-relative has-float-label">
+                                                        <input type="text" name="phone" placeholder="Phone" class="form-control">
+                                                        <div class="icon-bg text-center">
+                                                            <i class="fas fa-phone"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="age-gender-selector">
+                                                    <div class="form-input-inner position-relative d-inline-block">
+                                                        <input type="text" name="age" placeholder="Age" class="form-control">
+                                                        <div class="icon-bg text-center">
+                                                            <i class="fas fa-user"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gender-selector d-inline-block">
+                                                        <label>
+                                                            <input type="radio" name="gender" value="Male" class="gender-input">
+                                                            <span class="check-circle"></span>
+                                                            <span class="checkmark">Male</span>
+                                                        </label>
+                                                        <label>
+                                                            <input type="radio" name="gender" value="Female" class="gender-input">
+                                                            <span class="check-circle"></span>
+                                                            <span class="checkmark">Female</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="nb-terms-condition">
+                                                    <label>
+                                                        <input type="checkbox" name="gender" value="Male" class="gender-input">
+                                                        <span class="check-circle"></span>
+                                                        <span class="checkmark">Please accept our Terms and conditions </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="actions">
+                                            <ul>
+                                                <li><span class="js-btn-prev" title="PREV">Previous Question</span></li>
+                                                <li><button type="submit" class="" title="NEXT">Submit!</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- step 5 -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/jquery-3.3.1.min.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/bootstrap.min.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/popper.min.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/form-step.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/jquery.validate.min.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/main.js"></script>
+<!-- <script src="assets/js/switch.js"></script> -->
+<script>
+			$("#customFile").change(function() {
+				filename = this.files[0].name
+			});
+			$(".custom-file-input").on("change", function() {
+				var fileName = $(this).val().split("\\").pop();
+				$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+			});
+		</script>
+</body>
+
+</html>

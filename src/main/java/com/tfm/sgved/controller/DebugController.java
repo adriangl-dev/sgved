@@ -17,16 +17,16 @@ public class DebugController {
     AnswerService answerService;
     //ParticipantService participantService;
 
-    @GetMapping("/survey/all")
+    @GetMapping("/rest/survey/all")
     private List<Survey> getAllSurveys(){
         return surveyService.getAllSurveys();
     }
-    @PostMapping("/survey/add")
+    @PostMapping("/rest/survey/add")
     private int saveSurvey(@RequestBody Survey survey){
         surveyService.saveOrUpdate(survey);
         return survey.getId();
     }
-    @GetMapping("/survey/{id}")
+    @GetMapping("/rest/survey/{id}")
     private Survey getSurvey(@PathVariable("id") int id){
         return surveyService.getSurveyById(id);
     }

@@ -32,5 +32,5 @@ public class Question {
     private Survey survey;
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
-    private List<Answer> answers;
+    private @Getter @Setter List<Answer> answers;
 }

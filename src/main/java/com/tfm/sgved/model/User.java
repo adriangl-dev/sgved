@@ -11,15 +11,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table (name = "USERS")
 
 @Data
 
 @NoArgsConstructor
 public class User {
-    @Id
+
     @Column
     private @Getter @Setter String dni;
+    @Id
     @Column
     private @Getter @Setter String email;
     @Column
