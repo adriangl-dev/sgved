@@ -1,5 +1,7 @@
 package com.tfm.sgved.controller;
 
+import com.tfm.sgved.model.Result;
+import com.tfm.sgved.model.ResultWrapper;
 import com.tfm.sgved.model.Survey;
 import com.tfm.sgved.model.User;
 import com.tfm.sgved.service.QuestionService;
@@ -9,11 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+
+import java.util.ArrayList;
 
 @Controller
 @SessionAttributes("survey")
@@ -60,13 +61,15 @@ public class MainController {
     @GetMapping("/survey/do")
     public String doSurvey(Model model){
         Survey survey = surveyService.getSurveyById(34);
+        ResultWrapper result = new ResultWrapper();
+
         model.addAttribute("survey",survey);
+        model.addAttribute("result",result);
         return "survey";
     }
     @PostMapping("/survey/do")
-    public String confirmSurvey(Survey survey, BindingResult br, Model model,SessionStatus status){
-        System.out.println("Resultado survey: "+survey);
-        status.setComplete();
-        return "survey";
+    public String confirmSurvey(@ModelAttribute("result") ResultWrapper result, Model model){
+        System.out.println("Resultado despues: "+result);
+        return "admin";
     }
 }

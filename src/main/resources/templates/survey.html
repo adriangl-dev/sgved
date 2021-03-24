@@ -30,7 +30,7 @@
             </ul>
         </div>
         <div class="step-inner-content clearfix position-relative">
-            <form class="multisteps-form__form" th:action="@{/survey/do}" id="wizard" method="POST" th:object="${survey}">
+            <form class="multisteps-form__form" th:action="@{/survey/do}" id="wizard" method="POST" th:object="${result}">
                 <div class="form-area position-relative">
                     <div class="multisteps-form__panel" th:classappend="${iter.index == 0} ? 'js-active' : ''" data-animation="slideHorz" th:each="questions,iter : ${survey.questions}">
                         <div class="wizard-forms position-relative">
@@ -52,10 +52,14 @@
                                         <ul>
                                             <li th:each="answer, iter2 : ${questions.answers}">
                                                 <label>
-                                                    <input type="radio" value="1" class="exp-option-box" checked="checked" th:field="*{questions[__${iter.index}__].answers[__${iter2.index}__].text}">
+                                                     <th:block th:with="i=0">
+                                                    <input type="radio" value="1" class="exp-option-box" checked="checked" th:field="*{resultados[__${iter.index}__].id_answer}">
                                                     <span class="exp-label" th:text="${answer.text}">Respuesta</span>
                                                     <span class="checkmark-border"></span>
+                                                     </th:block>
+
                                                 </label>
+                                               
                                             </li>
                                             <li>
                                                 <label>

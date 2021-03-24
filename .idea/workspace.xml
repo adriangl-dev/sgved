@@ -4,7 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89cbfd78-8771-44aa-869f-b2730a70f481" name="Default Changelist" comment="Login + primera capa front lectura de survey." />
+    <list default="true" id="89cbfd78-8771-44aa-869f-b2730a70f481" name="Default Changelist" comment="Login + primera capa front lectura de survey.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/ResultWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/survey.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/survey.html" afterDir="false" />
+    </list>
+    <list id="a620951e-64f8-47b1-9c81-ecffdec1314d" name="Login + primera capa front lectura de survey." comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_bootstrap_5_0_0_beta2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_3_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_popper_js_2_5_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/bd_sgved.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/bd_sgved.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +45,8 @@
       <list>
         <option value="package-info" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -26,12 +56,41 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="1aca22d9f6210cf9021608bd312045032011acff" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
     <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="4" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+        <range start1="11" end1="15" start2="13" end2="14" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+        <range start1="16" end1="16" start2="15" end2="17" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+        <range start1="18" end1="19" start2="19" end2="20" changelist="a620951e-64f8-47b1-9c81-ecffdec1314d" />
+        <range start1="62" end1="62" start2="63" end2="65" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+        <range start1="63" end1="63" start2="66" end2="67" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+        <range start1="66" end1="70" start2="70" end2="73" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/.idea/workspace.xml">
+      <ranges>
+        <range start1="6" end1="7" start2="6" end2="37" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+        <range start1="17" end1="17" start2="47" end2="48" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+        <range start1="18" end1="19" start2="49" end2="49" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+        <range start1="28" end1="29" start2="58" end2="59" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+        <range start1="34" end1="34" start2="64" end2="93" changelist="89cbfd78-8771-44aa-869f-b2730a70f481" />
+        <range start1="49" end1="49" start2="108" end2="109" changelist="a620951e-64f8-47b1-9c81-ecffdec1314d" />
+        <range start1="77" end1="77" start2="137" end2="138" changelist="a620951e-64f8-47b1-9c81-ecffdec1314d" />
+        <range start1="112" end1="113" start2="173" end2="181" changelist="a620951e-64f8-47b1-9c81-ecffdec1314d" />
+        <range start1="151" end1="152" start2="219" end2="220" changelist="a620951e-64f8-47b1-9c81-ecffdec1314d" />
+        <range start1="174" end1="175" start2="242" end2="248" changelist="a620951e-64f8-47b1-9c81-ecffdec1314d" />
+        <range start1="179" end1="180" start2="252" end2="253" changelist="a620951e-64f8-47b1-9c81-ecffdec1314d" />
+        <range start1="184" end1="185" start2="257" end2="258" changelist="a620951e-64f8-47b1-9c81-ecffdec1314d" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectId" id="1q2EdCqjM4q9Ng5UG4vBax4YXfp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
