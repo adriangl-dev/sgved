@@ -17,10 +17,9 @@ import javax.persistence.Table;
 
 @NoArgsConstructor
 public class User {
-
+    @Id
     @Column
     private @Getter @Setter String dni;
-    @Id
     @Column
     private @Getter @Setter String email;
     @Column

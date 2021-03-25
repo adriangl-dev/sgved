@@ -19,7 +19,7 @@ public class UserService {
     }
 
     public User findUserByEmail(String email) {
-        return userRepository.findById(email).orElse(null);
+        return userRepository.findByEmail(email);
     }
 
     public List<User> getAllUsers() {

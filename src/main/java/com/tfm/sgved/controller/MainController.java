@@ -49,6 +49,7 @@ public class MainController {
     }
     @GetMapping("/admin")
     public String showAdmin(Model model){
+        System.out.println("Usuario: "+userService.findUserByEmail("adriangl@outlook.com"));
         model.addAttribute("users",userService.getAllUsers());
         model.addAttribute("surveys",surveyService.getAllSurveys());
         return "admin";
@@ -58,18 +59,24 @@ public class MainController {
 
         return "create_survey";
     }
-    @GetMapping("/survey/do")
-    public String doSurvey(Model model){
-        Survey survey = surveyService.getSurveyById(34);
+    @GetMapping("/survey/{id}")
+    public String doSurvey(@PathVariable("id") int id, Model model){
+        Survey survey = surveyService.getSurveyById(id);
         ResultWrapper result = new ResultWrapper();
 
         model.addAttribute("survey",survey);
         model.addAttribute("result",result);
         return "survey";
     }
-    @PostMapping("/survey/do")
-    public String confirmSurvey(@ModelAttribute("result") ResultWrapper result, Model model){
+    @PostMapping("/survey/{id}")
+    public String confirmSurvey(@PathVariable("id") int id, @ModelAttribute("result") ResultWrapper result, Model model){
         System.out.println("Resultado despues: "+result);
+
+       /* for(Result results : result.getResultados()){
+            results.setId_survey(id);
+            resultService.save(results);
+        }*/
+
         return "admin";
     }
 }
