@@ -5,11 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.sql.Date;
+import javax.persistence.*;
+import java.util.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "PARTICIPANTS")
@@ -18,11 +16,15 @@ import java.sql.Date;
 public class Participant {
     @Id
     @Column
-    private @Getter @Setter int id_survey;
+    private int id;
+    @Column
+    private @Getter @Setter int survey;
     @Column
     private @Getter @Setter String dni;
     @Column
     private @Getter @Setter Date date_filled;
     @Column
     private @Getter @Setter String done;
+    @Column
+    private @Getter @Setter String key;
 }

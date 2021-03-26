@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/animate.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/form.css/}">
 
 <body>
 <div class="wrapper">
+    <form class="multisteps-form__form" id="wizard" method="POST" th:object="${result}">
     <div class="wizard-content-1 clearfix">
         <div class="steps d-none position-absolute clearfix">
             <ul class="tablist multisteps-form__progress">
@@ -29,11 +30,17 @@
                 </li>
             </ul>
         </div>
-        <div class="step-inner-content clearfix position-relative">
-            <form class="multisteps-form__form" th:action="@{/survey/34}" id="wizard" method="POST" th:object="${result}">
-                <div class="form-area position-relative">
-                    <div class="multisteps-form__panel" th:classappend="${iter.index == 0} ? 'js-active' : ''" data-animation="slideHorz" th:each="questions,iter : ${survey.questions}">
-                        <div class="wizard-forms position-relative">
+
+                    <!-- step 1 -->
+
+                    <!-- step 2 -->
+
+                    <!-- step 3 -->
+
+                    <!-- step 4 -->
+
+                    <div class="multisteps-form__panel js-active" data-animation="slideHorz">
+                        <div class="wizard-forms">
                             <div class="job-style-two-content d-flex">
                                 <div class="job-wizard-left-area position-relative">
                                     <div class="job-wizard-left-text">
@@ -43,75 +50,26 @@
                                     </div>
                                     <span class="w-copyright position-absolute">©2020 BeWizard</span>
                                 </div>
-                                <div class="job-wizard-right-area survey-right-content-1">
-                                    <div class="jw-top-title">
-                                        <span th:text="${iter.index+1}+' of '+${iter.size}+' Answered'">1 of 5 Answered</span>
-                                        <h2 th:text="${questions.text}">¿Pregunta?</h2>
-                                    </div>
-                                    <div class="reccomend-selector">
-                                        <ul>
-                                            <li th:each="answer, iter2 : ${questions.answers}">
-                                                <label>
-                                                     <th:block th:with="i=0">
-                                                    <input type="radio" th:value="${answer.id}" class="exp-option-box" checked="checked" th:field="*{resultados[__${iter.index}__].id_answer}">
-                                                    <span class="exp-label" th:text="${answer.text}">Respuesta</span>
-                                                    <span class="checkmark-border"></span>
-                                                     </th:block>
-
-                                                </label>
-                                               
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="additional-reccomend">
-                                        <textarea placeholder="Additional message"></textarea>
-                                    </div>
-                                    <div class="actions">
-                                        <ul>
-                                            <li><span class="js-btn-prev" title="PREV">Previous Question</span></li>
-                                            <li><span class="js-btn-next" title="NEXT">Next Question</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- step 1 -->
-
-                    <!-- step 2 -->
-
-                    <!-- step 3 -->
-
-                    <!-- step 4 -->
-                    <div class="multisteps-form__panel" data-animation="slideHorz">
-                        <div class="wizard-forms">
-                            <div class="job-style-two-content d-flex">
-                                <div class="job-wizard-left-area position-relative">
-                                    <div class="job-wizard-left-text">
-                                        <h1>SURVEY
-                                        </h1>
-                                        <p>An mei sadipscing dissentiet, eos ea partem viderer facilisi. Brute nostrud democritum in vis, nam ei erat zril mediocrem. No postea diceret vix.</p>
-                                    </div>
-                                    <span class="w-copyright position-absolute">©2020 BeWizard</span>
-                                </div>
                                 <div class="job-wizard-right-area survey-right-content-5">
                                     <div class="survey-reccomend-area-3">
                                         <div class="jw-top-title">
                                             <h2>Please fill with your details</h2>
+                                            <h6 id="aviso_rest" class="alert alert-danger">El DNI y/o clave introducidos no están registrados para esta encuesta.</h6>
                                         </div>
                                         <div class="details-form-area">
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="form-input-inner position-relative has-float-label">
-                                                        <input type="text" name="dni" th:field="*{dni}" placeholder="DNI" class="required form-control">
+                                                        <input type="text" id="dni" name="dni" th:field="*{dni}" placeholder="DNI" class="required form-control">
                                                         <div class="icon-bg text-center">
                                                             <i class="fas fa-id-card"></i>
                                                         </div>
                                                     </div>
+                                                    <input type="text" id="idsurvey_hidden" th:value="${survey.id}" name="ID_SURVEY">
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-input-inner position-relative has-float-label">
-                                                        <input type="text" name="key" th:field="*{key}" placeholder="Survey KEY" class="required form-control">
+                                                        <input type="text" id="key" name="key" th:field="*{key}" placeholder="Survey KEY" class="required form-control">
                                                         <div class="icon-bg text-center">
                                                             <i class="fas fa-key"></i>
                                                         </div>
@@ -131,8 +89,8 @@
                                         </div>
                                         <div class="actions">
                                             <ul>
-                                                <li><span class="js-btn-prev" title="PREV">Previous Question</span></li>
-                                                <li><button type="submit" class="" title="NEXT">Submit!</button></li>
+                                                <li><span class="js-btn-start" title="Comenzar" id="comenzar">Comenzar</span></li>
+                                                <li id="next"><span id="next-btn" class="js-btn-next" title="Next Question" >Next Question</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -140,11 +98,60 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- step 5 -->
+        <div class="step-inner-content clearfix position-relative">
+
+                <div class="form-area position-relative">
+                    <div class="multisteps-form__panel"  data-animation="slideHorz" th:each="questions,iter : ${survey.questions}">
+                        <div class="wizard-forms position-relative">
+                            <div class="job-style-two-content d-flex">
+                                <div class="job-wizard-left-area position-relative">
+                                    <div class="job-wizard-left-text">
+                                        <h1 th:text="${survey.title}">SURVEY
+                                        </h1>
+                                        <p th:text="${survey.description}">Descripcion</p>
+                                    </div>
+                                    <span class="w-copyright position-absolute">©2020 BeWizard</span>
+                                </div>
+                                <div class="job-wizard-right-area survey-right-content-1">
+                                    <div class="jw-top-title">
+                                        <span th:text="${iter.index+1}+' of '+${iter.size}+' Answered'">1 of 5 Answered</span>
+                                        <h2 th:text="${questions.text}">¿Pregunta?</h2>
+                                        <input type="radio" th:value="${questions.id}" class="radio_hidden" th:field="*{resultados[__${iter.index}__].question}" checked="true">
+                                    </div>
+                                    <div class="reccomend-selector">
+                                        <ul>
+                                            <li th:each="answer, iter2 : ${questions.answers}">
+                                                <label>
+                                                    <th:block th:with="i=0">
+                                                        <input type="radio" th:value="${answer.id}" class="exp-option-box" th:field="*{resultados[__${iter.index}__].answer}">
+                                                        <span class="exp-label" th:text="${answer.text}">Respuesta</span>
+                                                        <span class="checkmark-border"></span>
+                                                    </th:block>
+                                                </label>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="additional-reccomend">
+                                        <textarea placeholder="Additional message"></textarea>
+                                    </div>
+                                    <div class="actions">
+                                        <ul>
+                                            <li th:if="${iter.index != 0}"><span class="js-btn-prev" title="PREV">Previous Question</span></li>
+                                            <li th:if="${iter.index+1 != iter.size}"><span class="js-btn-next" title="NEXT">Next Question</span></li>
+                                            <li th:if="${iter.index+1 == iter.size}"><button type="submit" class="" title="Send">Finalizar</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
         </div>
     </div>
+    </form>
 </div>
 
 <script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/jquery-3.3.1.min.js"></script>
@@ -165,6 +172,34 @@
 				$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 			});
 		</script>
-</body>
 
+<script type="text/javascript">
+			$(document).ready(function(){
+			    $('#aviso_rest').hide();
+			    $('#next').hide();
+			    $('#idsurvey_hidden').hide();
+			    //$('#idquestion_hidden').hide();
+			    $(".radio_hidden").prop("checked", true);
+				$("#comenzar").click(function (e) {
+				    $('#aviso_rest').hide();
+				    var dni = $("#dni").val();
+				    var key = $("#key").val();
+				    var survey = $('#idsurvey_hidden').val();
+                    $.ajax({
+                            url:"http://localhost:8080/rest/check_auth/"+dni+"/"+key+"/"+survey,
+                            success:function(response){
+                                if(response == "OK"){
+                                    console.log("LOGEADO OK");
+                                    $('#next-btn').click();
+                                }
+                                else {
+                                    console.log("LOGEADO KO");
+                                    $('#aviso_rest').show();
+                                }
+							}
+                    });
+                });
+            });
+</script>
+</body>
 </html>

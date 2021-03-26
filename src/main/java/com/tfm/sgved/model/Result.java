@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Data
 public class Result {
-    private @Getter @Setter int id_question;
-    private @Getter @Setter int id_answer;
-    private @Getter @Setter int id_survey;
+    private @Getter @Setter int question;
+    private @Getter @Setter int answer;
+    private @Getter @Setter int survey;
 }

@@ -1,10 +1,7 @@
 package com.tfm.sgved.controller;
 
-import com.tfm.sgved.model.Result;
-import com.tfm.sgved.model.ResultWrapper;
-import com.tfm.sgved.model.Survey;
-import com.tfm.sgved.model.User;
-import com.tfm.sgved.service.QuestionService;
+import com.tfm.sgved.model.*;
+import com.tfm.sgved.service.ParticipantService;
 import com.tfm.sgved.service.SurveyService;
 import com.tfm.sgved.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
 
-import java.util.ArrayList;
+import java.util.Date;
 
 @Controller
 @SessionAttributes("survey")
@@ -24,7 +20,7 @@ public class MainController {
     @Autowired
     SurveyService surveyService;
     @Autowired
-    QuestionService questionService;
+    ParticipantService participantService;
 
     @GetMapping({"/", "login"})
     public String showLogin(Model model){
@@ -70,13 +66,15 @@ public class MainController {
     }
     @PostMapping("/survey/{id}")
     public String confirmSurvey(@PathVariable("id") int id, @ModelAttribute("result") ResultWrapper result, Model model){
+        System.out.println("Survey: "+id);
+
+        result.getResultados().forEach(results -> results.setSurvey(id));
+        //resultService.save(results);
+        Participant data = participantService.findByDniAndSurvey(result.getDni(),id);
+        data.setDone("S");
+        data.setDate_filled(new Date());
         System.out.println("Resultado despues: "+result);
-
-       /* for(Result results : result.getResultados()){
-            results.setId_survey(id);
-            resultService.save(results);
-        }*/
-
-        return "admin";
+        System.out.println("Data final para insertar: "+data);
+        return "survey";
     }
 }
