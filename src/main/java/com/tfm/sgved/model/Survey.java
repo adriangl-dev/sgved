@@ -11,7 +11,6 @@ import java.util.List;
 @Table(name = "SURVEYS")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Survey {
     @Id
     @Column(name = "id")
@@ -21,8 +20,10 @@ public class Survey {
     private @Getter @Setter String title;
     @Column
     private @Getter @Setter String description;
+    @Column(name="PARTICIPANTSNUMBER")
+    private @Getter @Setter int participantsNumber;
     @Column
-    private @Getter @Setter int participants_number;
+    private @Getter @Setter boolean editable;
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "survey")
     private @Getter @Setter List<Question> questions;

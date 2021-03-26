@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Survey V2</title>
+    <title>SGVED Encuesta!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/owl.carousel.css">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/animate.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/form.css/}">
-
+</head>
 <body>
 <div class="wrapper">
     <form class="multisteps-form__form" id="wizard" method="POST" th:object="${result}">
@@ -53,7 +53,7 @@
                                 <div class="job-wizard-right-area survey-right-content-5">
                                     <div class="survey-reccomend-area-3">
                                         <div class="jw-top-title">
-                                            <h2>Please fill with your details</h2>
+                                            <h2>Introduce tus credenciales recibidas por correo</h2>
                                             <h6 id="aviso_rest" class="alert alert-danger">El DNI y/o clave introducidos no están registrados para esta encuesta.</h6>
                                         </div>
                                         <div class="details-form-area">
@@ -178,8 +178,8 @@
 			    $('#aviso_rest').hide();
 			    $('#next').hide();
 			    $('#idsurvey_hidden').hide();
-			    //$('#idquestion_hidden').hide();
 			    $(".radio_hidden").prop("checked", true);
+			    $(".radio_hidden").hide();
 				$("#comenzar").click(function (e) {
 				    $('#aviso_rest').hide();
 				    var dni = $("#dni").val();

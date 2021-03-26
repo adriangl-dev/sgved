@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.sql.Timestamp;
 
 @Entity
 @Table(name = "PARTICIPANTS")
@@ -17,14 +16,22 @@ public class Participant {
     @Id
     @Column
     private int id;
-    @Column
-    private @Getter @Setter int survey;
+
+    @Column(name="NSURVEY")
+    private @Getter @Setter int nsurvey;
+
     @Column
     private @Getter @Setter String dni;
-    @Column
-    private @Getter @Setter Date date_filled;
-    @Column
-    private @Getter @Setter String done;
+
+    @Column(name="DATEFILLED")
+    private @Getter @Setter Date dateFilled;
+
+    @Column(name="FILLED")
+    private @Getter @Setter boolean filled;
+
     @Column
     private @Getter @Setter String key;
+
+    @Column
+    private @Getter @Setter String email;
 }

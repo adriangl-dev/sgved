@@ -65,9 +65,10 @@
         <thead>
         <tr>
             <th data-sortable="true">ID</th>
-            <th data-sortable="true">TITLE</th>
-            <th data-sortable="true">DESCRIPTION</th>
-            <th>ACCIONES</th>
+            <th data-sortable="true">Título</th>
+            <th data-sortable="true">Descripción</th>
+            <th>Editable</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -75,6 +76,7 @@
             <td th:text="${survey.id}">Onions</td>
             <td th:text="${survey.title}">2.41</td>
             <td th:text="${survey.description}">yes</td>
+            <td th:text="${survey.editable}"></td>
             <td><i class="fas fa-chart-area"></i><i class="fas fa-search-plus"></i></td>
         </tr>
         </tbody>

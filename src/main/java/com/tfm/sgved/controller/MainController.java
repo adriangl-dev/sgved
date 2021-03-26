@@ -45,7 +45,6 @@ public class MainController {
     }
     @GetMapping("/admin")
     public String showAdmin(Model model){
-        System.out.println("Usuario: "+userService.findUserByEmail("adriangl@outlook.com"));
         model.addAttribute("users",userService.getAllUsers());
         model.addAttribute("surveys",surveyService.getAllSurveys());
         return "admin";
@@ -71,8 +70,8 @@ public class MainController {
         result.getResultados().forEach(results -> results.setSurvey(id));
         //resultService.save(results);
         Participant data = participantService.findByDniAndSurvey(result.getDni(),id);
-        data.setDone("S");
-        data.setDate_filled(new Date());
+        data.setFilled(true);
+        data.setDateFilled(new Date());
         System.out.println("Resultado despues: "+result);
         System.out.println("Data final para insertar: "+data);
         return "survey";

@@ -1,6 +1,5 @@
 package com.tfm.sgved.model;
 
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
@@ -20,16 +19,21 @@ public class Question {
     @Column (name = "id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private @Getter @Setter int id;
-    @Column
-    private @Getter @Setter int id_survey;
+
+    @Column(name="NSURVEY")
+    private @Getter @Setter int nsurvey;
+
     @Column
     private @Getter @Setter String text;
+
     @Column
-    private @Getter @Setter String question_type;
+    private @Getter @Setter String type;
+
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_survey", insertable = false, updatable = false)
+    @JoinColumn(name = "nsurvey", insertable = false, updatable = false)
     private Survey survey;
+
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
     private @Getter @Setter List<Answer> answers;

@@ -17,12 +17,15 @@ public class Answer {
     @Column
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private @Getter @Setter int id;
+
     @Column
-    private @Getter @Setter int id_question;
+    private @Getter @Setter int nquestion;
+
     @Column
     private @Getter @Setter String text;
+
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_question", insertable = false, updatable = false)
+    @JoinColumn(name = "nquestion", insertable = false, updatable = false)
     private Question question;
 }

@@ -10,7 +10,7 @@ public class ParticipantService {
     @Autowired
     ParticipantRepository participantRepository;
 
-    public Participant findByDniAndSurvey(String dni, int id_survey){
-        return participantRepository.findByDniAndSurvey(dni,id_survey);
+    public Participant findByDniAndSurvey(String dni, int nsurvey){
+        return participantRepository.findByDniAndNsurvey(dni,nsurvey);
     }
 }

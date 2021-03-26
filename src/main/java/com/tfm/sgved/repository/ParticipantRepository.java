@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ParticipantRepository extends CrudRepository<Participant, Integer>{
 
-    Participant findByDniAndSurvey(String dni, int id_survey);
+    Participant findByDniAndNsurvey(String dni, int nsurvey);
 }
