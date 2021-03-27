@@ -15,4 +15,8 @@ public class ResultService {
     public List<Result> findResultsBySurvey(int nsurvey) {
         return resultRepository.findBySurvey(nsurvey);
     }
+
+    public void save(Result result){
+        resultRepository.save(result);
+    }
 }

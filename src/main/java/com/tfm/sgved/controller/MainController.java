@@ -2,6 +2,7 @@ package com.tfm.sgved.controller;
 
 import com.tfm.sgved.model.*;
 import com.tfm.sgved.service.ParticipantService;
+import com.tfm.sgved.service.ResultService;
 import com.tfm.sgved.service.SurveyService;
 import com.tfm.sgved.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class MainController {
     SurveyService surveyService;
     @Autowired
     ParticipantService participantService;
+    @Autowired
+    ResultService resultService;
 
     @GetMapping({"/", "login"})
     public String showLogin(Model model){
@@ -49,7 +52,7 @@ public class MainController {
         model.addAttribute("surveys",surveyService.getAllSurveys());
         return "admin";
     }
-    @GetMapping("/survey/create")
+    @GetMapping("/survey/add")
     public String createSurvey(Model model){
 
         return "create_survey";
@@ -67,8 +70,10 @@ public class MainController {
     public String confirmSurvey(@PathVariable("id") int id, @ModelAttribute("result") ResultWrapper result, Model model){
         System.out.println("Survey: "+id);
 
-        result.getResultados().forEach(results -> results.setSurvey(id));
-        //resultService.save(results);
+        result.getResultados().forEach(results -> {
+            results.setSurvey(id);
+            resultService.save(results);
+        });
         Participant data = participantService.findByDniAndSurvey(result.getDni(),id);
         data.setFilled(true);
         data.setDateFilled(new Date());

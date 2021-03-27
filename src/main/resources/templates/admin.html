@@ -23,7 +23,7 @@
             <li class="nav-item active"><a class="nav-link" href="#" id="home">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#" id="users">Users</a></li>
             <li class="nav-item"><a class="nav-link" href="#" id="surveys">Surveys</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" id="add_survey"><i class="fas fa-plus"></i> Survey</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/survey/add}" id="add_survey"><i class="fas fa-plus"></i> Survey</a></li>
             <li class="nav-item"><a class="nav-link" th:href="@{/login}">Logout</a></li>
         </ul>
     </div>
@@ -77,7 +77,12 @@
             <td th:text="${survey.title}">2.41</td>
             <td th:text="${survey.description}">yes</td>
             <td th:text="${survey.editable}"></td>
-            <td><i class="fas fa-chart-area"></i><i class="fas fa-search-plus"></i></td>
+            <td style="text-align: center"><a class="btnStats" href="#" title="Ver resultados"><i class="fas fa-chart-area"></i></a>
+                <a class="btnDetalles" href="#" title="Ver detalle"><i class="fas fa-search-plus"></i></a>
+                <a class="btnQuestions" href="#" title="Añadir preguntas"><i class="far fa-question-circle"></i></a>
+                <a class="btnParticipants" href="#" title="Añadir participantes"><i class="fas fa-users"></i></a>
+                <a class="btnPublic" href="#" title="Publicar encuesta"><i class="fas fa-cloud-upload-alt"></i></a>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -112,6 +117,13 @@
 }
 </style>
 <script>
+$(document).ready(function() {
+    $('#tabla_2').on('click', '.btnDetalles', function(){
+        var currentRow=$(this).closest("tr");
+        var col3=currentRow.find("td:eq(2)").text();
+        alert(col3);
+    });
+
 $("#users").click(function () {
     $("#section_0").hide();
     $("#section_1").show();
@@ -127,5 +139,8 @@ $("#home").click(function () {
     $("#section_1").hide();
     $("#section_2").hide();
 });
+
+});
+
 </script>
 </html>
