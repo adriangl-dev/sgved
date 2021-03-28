@@ -3,8 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <script>
+$(document).ready(function(){
+    var next = 0;
+    $(".add-more").click(function(e){
+        e.preventDefault();
+        var addto = "#field" + next;
+        next = next + 1;
+        var newIn = '<br /><br /><input autocomplete="off" th:field="*{answersTemp['+next+'].text}" class="span3" id="field' + next + '" name="answersTemp[' + next + '].text" placeholder="Escribe una respuesta" type="text" data-provide="typeahead" data-items="8">';
+        var newInput = $(newIn);
+        $(addto).after(newInput);
+        $("#answersTemp" + next + ".text").attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(next);
+    });
+});
+
+    </script>
 </head>
 <body>
+<div class="container">
+    <div class="row">
 
+        <div class="control-group" id="fields">
+            <label class="control-label" for="field0">Nice Multiple Form Fields</label>
+            <form method="POST" th:object="${question}">
+                <input type="hidden" name="count" value="0" />
+            <div class="controls" id="profs">
+                <div class="input-append">
+                    <input autocomplete="off" th:field="*{answersTemp[0].text}" class="span3" id="field0" name="prof1" type="text" placeholder="Escribe una respuesta" data-provide="typeahead" data-items="8" data-source='["Aardvark","Beatlejuice","Capricorn","Deathmaul","Epic"]'/><button id="b1" class="btn btn-info add-more" type="button">+</button>
+                </div>
+                <br>
+                <small>Press + to add another form field :)</small>
+            </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

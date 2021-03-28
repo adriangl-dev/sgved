@@ -57,6 +57,17 @@ public class MainController {
 
         return "create_survey";
     }
+    @GetMapping("/survey/add_question")
+    public String createQuestion(Model model){
+        QuestionWrapper question = new QuestionWrapper();
+        model.addAttribute("question",question);
+        return "create_question";
+    }
+    @PostMapping("/survey/add_question")
+    public String saveQuestion(@ModelAttribute("question") QuestionWrapper question, Model model){
+        System.out.println("Question final: "+question);
+        return "create_question";
+    }
     @GetMapping("/survey/{id}")
     public String doSurvey(@PathVariable("id") int id, Model model){
         Survey survey = surveyService.getSurveyById(id);

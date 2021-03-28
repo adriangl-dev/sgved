@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.boot:spring-boot-starter-web:2.5.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/2.5.0-SNAPSHOT/spring-boot-starter-web-2.5.0-20210325.155955-358.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/2.5.0-SNAPSHOT/spring-boot-starter-web-2.5.0-20210327.073041-361.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/2.5.0-SNAPSHOT/spring-boot-starter-web-2.5.0-20210325.155955-358-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/2.5.0-SNAPSHOT/spring-boot-starter-web-2.5.0-20210327.073041-361-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/2.5.0-SNAPSHOT/spring-boot-starter-web-2.5.0-20210325.155955-358-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/2.5.0-SNAPSHOT/spring-boot-starter-web-2.5.0-20210327.073041-361-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
