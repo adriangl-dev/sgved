@@ -9,7 +9,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "SURVEYS")
-@Data
 @NoArgsConstructor
 public class Survey {
     @Id
@@ -23,7 +22,7 @@ public class Survey {
     @Column(name="PARTICIPANTSNUMBER")
     private @Getter @Setter int participantsNumber;
     @Column
-    private @Getter @Setter boolean editable;
+    private @Getter @Setter boolean editable = true;
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "survey")
     private @Getter @Setter List<Question> questions;

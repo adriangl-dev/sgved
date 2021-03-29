@@ -5,12 +5,12 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "ANSWERS")
-@Data
 @NoArgsConstructor
 public class Answer {
     @Id
@@ -23,6 +23,9 @@ public class Answer {
 
     @Column
     private @Getter @Setter String text;
+
+    @Transient
+    private @Getter @Setter String total = "0";
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)

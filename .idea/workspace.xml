@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89cbfd78-8771-44aa-869f-b2730a70f481" name="Default Changelist" comment="Remodelado de tablas BD y objetos model.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/QuestionWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/survey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/create_question2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_5_0_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_5_0_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_5_0_SNAPSHOT.xml" afterDir="false" />
@@ -23,11 +24,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_5_0_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_5_0_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sgved.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sgved.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Answer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Survey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Survey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/repository/ResultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/repository/ResultRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/service/ResultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/service/ResultService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_question.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_survey.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_survey.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +47,8 @@
       <list>
         <option value="package-info" />
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -80,6 +88,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
@@ -262,7 +271,7 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
-        <breakpoint type="java-exception">
+        <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="3" />
         </breakpoint>

@@ -2,49 +2,100 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
-
-    <script>
-$(document).ready(function(){
-    var next = 0;
-    $(".add-more").click(function(e){
-        e.preventDefault();
-        var addto = "#field" + next;
-        next = next + 1;
-        var newIn = '<br /><br /><input autocomplete="off" th:field="*{answersTemp['+next+'].text}" class="span3" id="field' + next + '" name="answersTemp[' + next + '].text" placeholder="Escribe una respuesta" type="text" data-provide="typeahead" data-items="8">';
-        var newInput = $(newIn);
-        $(addto).after(newInput);
-        $("#answersTemp" + next + ".text").attr('data-source',$(addto).attr('data-source'));
-        $("#count").val(next);
-    });
-});
-
-    </script>
+    <title>Añadir pregunta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/animate.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/survey.css}">
 </head>
 <body>
-<div class="container">
-    <div class="row">
-
-        <div class="control-group" id="fields">
-            <label class="control-label" for="field0">Nice Multiple Form Fields</label>
-            <form method="POST" th:object="${question}">
+<div class="wrapper position-relative">
+    <div class="wizard-content-1 clearfix">
+        <div class="steps d-inline-block position-absolute clearfix">
+            <ul class="tablist multisteps-form__progress">
+                <li class="multisteps-form__progress-btn js-active current"></li>
+                <li class="multisteps-form__progress-btn "></li>
+                <li class="multisteps-form__progress-btn"></li>
+            </ul>
+        </div>
+        <div class="step-inner-content clearfix position-relative">
+            <form class="multisteps-form__form" action="" id="wizard" method="POST" th:object="${question}">
                 <input type="hidden" name="count" value="0" />
-            <div class="controls" id="profs">
-                <div class="input-append">
-                    <input autocomplete="off" th:field="*{answersTemp[0].text}" class="span3" id="field0" name="prof1" type="text" placeholder="Escribe una respuesta" data-provide="typeahead" data-items="8" data-source='["Aardvark","Beatlejuice","Capricorn","Deathmaul","Epic"]'/><button id="b1" class="btn btn-info add-more" type="button">+</button>
+                <div class="form-area position-relative">
+                    <div class="multisteps-form__panel  js-active" data-animation="fadeIn">
+                        <div class="wizard-forms position-relative">
+                            <div class="job-style-two-content d-flex">
+                                <div class="job-wizard-left-area position-relative">
+                                    <div class="job-wizard-left-text">
+                                        <h1 th:text="${survey.title}">SGVED</h1>
+                                        <p th:text="${survey.description}">Sistema de gestión de encuestas para docentes</p>
+                                    </div>
+                                </div>
+                                <div class="job-wizard-right-area">
+                                    <div class="jw-top-title">
+                                        <h2>Creación de nueva pregunta</h2>
+                                        <p>Datos de la pregunta</p>
+                                    </div>
+                                    <div class="hire-company-form">
+                                        <input autocomplete="off" th:field="*{text}" class="required" type="text" name="question_title" placeholder="Enunciado de la pregunta" required>
+                                        <input autocomplete="off" th:field="*{answers[0].text}" class="required" type="text" id="field0" name="prof1" placeholder="Escribe una respuesta" required>
+                                        <button id="b1" class="btn btn-info add-more" type="button">+</button>
+                                    </div>
+
+                                    <div class="actions">
+                                        <ul>
+                                            <li><button type="submit"><span class="" title="Confirmar encuesta">Confirmar encuesta</span> </button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- step 1 -->
+
+                    <!-- step 2 -->
+
+                    <!-- step 3 -->
                 </div>
-                <br>
-                <small>Press + to add another form field :)</small>
-            </div>
-                <button type="submit">Enviar</button>
             </form>
         </div>
     </div>
 </div>
+
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/jquery-3.3.1.min.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/bootstrap.min.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/popper.min.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/form-step.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/jquery.validate.min.js"></script>
+<script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/main.js"></script>
+<!-- <script src="assets/js/switch.js"></script> -->
+<script>
+		$("#customFile").change(function() {
+			filename = this.files[0].name
+		});
+		$(".custom-file-input").on("change", function() {
+			var fileName = $(this).val().split("\\").pop();
+			$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+		});
+
+		$(document).ready(function(){
+            var next = 0;
+            $(".add-more").click(function(e){
+                e.preventDefault();
+                var addto = "#field" + next;
+                next = next + 1;
+                var newIn = '<br /><br /><input autocomplete="off" th:field="*{answers['+next+'].text}" class="required" id="field' + next + '" name="answers[' + next + '].text" placeholder="Otra respuesta" type="text">';
+                var newInput = $(newIn);
+                $(addto).after(newInput);
+                $("#answersTemp" + next + ".text").attr('data-source',$(addto).attr('data-source'));
+                $("#count").val(next);
+            });
+        });
+</script>
 </body>
 </html>

@@ -14,9 +14,9 @@ public class QuestionService {
     QuestionRepository questionRepository;
 
     //alta y edicion pregunta
-    public void saveOrUpdate(Question survey)
+    public Question saveOrUpdate(Question survey)
     {
-        questionRepository.save(survey);
+        return questionRepository.save(survey);
     }
     //obtener pregunta
     public Question getQuestionById(int id)

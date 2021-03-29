@@ -123,6 +123,11 @@ $(document).ready(function() {
         var col3=currentRow.find("td:eq(2)").text();
         alert(col3);
     });
+    $('#tabla_2').on('click', '.btnQuestions', function(){
+        var currentRow=$(this).closest("tr");
+        var col=currentRow.find("td:eq(0)").text();
+        window.open("http://localhost:8080/survey/"+col+"/add_question","_blank");
+    });
 
 $("#users").click(function () {
     $("#section_0").hide();
