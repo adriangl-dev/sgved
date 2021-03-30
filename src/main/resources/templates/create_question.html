@@ -37,17 +37,18 @@
                                 <div class="job-wizard-right-area">
                                     <div class="jw-top-title">
                                         <h2>Creación de nueva pregunta</h2>
-                                        <p>Datos de la pregunta</p>
+                                        <p th:text="'Preguntas registradas actualmente: '+${nQuestions}">Datos de la pregunta</p>
+                                        <h6 th:if="${mensajeOK != null}" th:text="${mensajeOK}" id="mensajeOK" class="alert alert-success" role="alert">Mensaje OK</h6>
                                     </div>
                                     <div class="hire-company-form">
-                                        <input autocomplete="off" th:field="*{text}" class="required" type="text" name="question_title" placeholder="Enunciado de la pregunta" required>
+                                        <input autocomplete="off" th:field="*{text}" class="required" type="text" name="question_title" placeholder="Enunciado de la pregunta" required><br><br>
                                         <input autocomplete="off" th:field="*{answers[0].text}" class="required" type="text" id="field0" name="prof1" placeholder="Escribe una respuesta" required>
-                                        <button id="b1" class="btn btn-info add-more" type="button">+</button>
+                                        <button id="b1" class="btn btn-outline-success add-more" type="button">Añadir respuesta</button>
                                     </div>
 
                                     <div class="actions">
                                         <ul>
-                                            <li><button type="submit"><span class="" title="Confirmar encuesta">Confirmar encuesta</span> </button></li>
+                                            <li><button type="submit"><span class="" title="Guardar pregunta">Guardar pregunta</span> </button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -85,11 +86,12 @@
 
 		$(document).ready(function(){
             var next = 0;
+            $('#mensajeOK').fadeOut(3000);
             $(".add-more").click(function(e){
                 e.preventDefault();
                 var addto = "#field" + next;
                 next = next + 1;
-                var newIn = '<br /><br /><input autocomplete="off" th:field="*{answers['+next+'].text}" class="required" id="field' + next + '" name="answers[' + next + '].text" placeholder="Otra respuesta" type="text">';
+                var newIn = '<input autocomplete="off" th:field="*{answers['+next+'].text}" class="required" id="field' + next + '" name="answers[' + next + '].text" placeholder="Otra respuesta" type="text">';
                 var newInput = $(newIn);
                 $(addto).after(newInput);
                 $("#answersTemp" + next + ".text").attr('data-source',$(addto).attr('data-source'));

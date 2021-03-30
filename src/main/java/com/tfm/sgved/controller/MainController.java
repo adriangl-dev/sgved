@@ -97,14 +97,17 @@ public class MainController {
         Survey survey = surveyService.getSurveyById(id);
         model.addAttribute("survey",survey);
         model.addAttribute("question",question);
+        model.addAttribute("nQuestions",survey.getQuestions().size());
         return "create_question";
     }
     @PostMapping("/survey/{id}/add_question")
     public String saveQuestion(@PathVariable("id") int id, @ModelAttribute("question") Question question, Model model){
         question.setNsurvey(id);
         question.setType("TIPO 1");
-        Survey survey = surveyService.getSurveyById(id);
+
         Question saved = questionService.saveOrUpdate(question);
+        Survey survey = surveyService.getSurveyById(id);
+
         question.getAnswers().forEach(a -> {
             a.setNquestion(saved.getId());
             answerService.saveOrUpdate(a);
@@ -112,6 +115,8 @@ public class MainController {
         question = new Question();
         model.addAttribute("question",question);
         model.addAttribute("survey",survey);
+        model.addAttribute("nQuestions",survey.getQuestions().size());
+        model.addAttribute("mensajeOK","Pregunta registrada correctamente!");
         return "create_question";
     }
 
