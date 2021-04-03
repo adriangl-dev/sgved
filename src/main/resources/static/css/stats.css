@@ -1,0 +1,19 @@
+.container {
+  width: 80%;
+}
+
+.progress {
+  height: 28px;
+}
+
+.progress-bar {
+  background-color: #002C6C;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.progress-bar span {
+  position: absolute;
+  right: -20px;
+  color: #002C6C;
+}

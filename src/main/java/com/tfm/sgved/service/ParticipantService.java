@@ -13,4 +13,8 @@ public class ParticipantService {
     public Participant findByDniAndSurvey(String dni, int nsurvey){
         return participantRepository.findByDniAndNsurvey(dni,nsurvey);
     }
+
+    public void saveParticipant(Participant participant){
+        participantRepository.save(participant);
+    }
 }

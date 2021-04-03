@@ -5,11 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89cbfd78-8771-44aa-869f-b2730a70f481" name="Default Changelist" comment="Remodelado de tablas BD y objetos model.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/stats.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/adminV2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/show_stats.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Participant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/QuestionWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/service/ParticipantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/service/ParticipantService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/survey.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/survey.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_question.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_participant.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_participant.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617058773855</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Maquetado final create_question.html">
+      <created>1617111974732</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617111974732</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,7 +243,8 @@
     <MESSAGE value="Pruebas con la clase Result para recuperar la respuesta." />
     <MESSAGE value="Remodelado de tablas BD y objetos model." />
     <MESSAGE value="Alta de encuestas + preguntas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Alta de encuestas + preguntas." />
+    <MESSAGE value="Maquetado final create_question.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Maquetado final create_question.html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

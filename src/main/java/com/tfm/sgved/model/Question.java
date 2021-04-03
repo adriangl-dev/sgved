@@ -27,6 +27,9 @@ public class Question {
     @Column
     private @Getter @Setter String type;
 
+    @Transient
+    private @Getter @Setter int respuestasTotales = 0;
+
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "nsurvey", insertable = false, updatable = false)

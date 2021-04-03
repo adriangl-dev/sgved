@@ -55,43 +55,44 @@ public class MainController {
     public String showAdmin(Model model){
         model.addAttribute("users",userService.getAllUsers());
         model.addAttribute("surveys",surveyService.getAllSurveys());
+        return "adminV2";
+    }
 
-        //PRUEBAS STATS
-        HashMap<String,String> map = resultService.stats(34);
-        AtomicInteger nTotal = new AtomicInteger(0);
-        Survey surv = surveyService.getSurveyById(34);
+    //MOSTRAR RESULTADOS
+    @GetMapping("/admin/stats/{id}")
+    @PostMapping("/admin/stats/{id}")
+    public String showStats(@PathVariable("id") int id, Model model){
+        HashMap<String,String> map = resultService.stats(id);
+        Survey survey = surveyService.getSurveyById(id);
 
-        surv.getQuestions().forEach(q -> {
+        survey.getQuestions().forEach(q -> {
             q.getAnswers().forEach(a -> {
-                if(map.containsKey(String.valueOf(a.getId()))) a.setTotal(map.get(String.valueOf(a.getId())));
-                if(a.getTotal() != null) nTotal.set(Integer.parseInt(a.getTotal())+nTotal.get());
-                System.out.println("Respuesta "+a.getText()+ " con id "+a.getId()+" tiene respuestas: "+a.getTotal());
+                if(map.containsKey(String.valueOf(a.getId()))) a.setTotal(Integer.parseInt(map.get(String.valueOf(a.getId()))));
+                if(a.getTotal() != 0) q.setRespuestasTotales(q.getRespuestasTotales()+a.getTotal());
             });
         });
-        System.out.println("ntotal: "+nTotal.get());
 
-        //FIN PRUEBA STATS
-
-        return "admin";
+        model.addAttribute("survey",survey);
+        return "show_stats";
     }
 
     //CREAR NUEVA ENCUESTA
-    @GetMapping("/survey/add")
+    @GetMapping("/admin/add_survey")
     public String createSurvey(Model model){
         Survey survey = new Survey();
         model.addAttribute("survey",survey);
 
         return "create_survey";
     }
-    @PostMapping("/survey/add")
+    @PostMapping("/admin/add_survey")
     public String saveSurvey(@ModelAttribute("survey") Survey survey, BindingResult br, Model model){
         System.out.println(("Survey final: ")+survey.getTitle());
         surveyService.saveOrUpdate(survey);
-        return "create_survey";
+        return "redirect:/admin";
     }
 
     //CREAR NUEVA PREGUNTA-RESPUESTA
-    @GetMapping("/survey/{id}/add_question")
+    @GetMapping("/admin/add_question/{id}")
     public String createQuestion(@PathVariable("id") int id, Model model){
         Question question = new Question();
         Survey survey = surveyService.getSurveyById(id);
@@ -100,7 +101,7 @@ public class MainController {
         model.addAttribute("nQuestions",survey.getQuestions().size());
         return "create_question";
     }
-    @PostMapping("/survey/{id}/add_question")
+    @PostMapping("/admin/add_question/{id}")
     public String saveQuestion(@PathVariable("id") int id, @ModelAttribute("question") Question question, Model model){
         question.setNsurvey(id);
         question.setType("TIPO 1");
@@ -120,6 +121,35 @@ public class MainController {
         return "create_question";
     }
 
+    //AÑADIR PARTICIPANTE
+    @GetMapping("/admin/add_participant/{id}")
+    public String createParticipant(@PathVariable("id") int id, Model model){
+        Participant participant = new Participant();
+        Survey survey = surveyService.getSurveyById(id);
+        model.addAttribute("survey",survey);
+        model.addAttribute("participant",participant);
+
+        return "create_participant";
+    }
+    @PostMapping("/admin/add_participant/{id}")
+    public String saveParticipant(@PathVariable("id") int id, @ModelAttribute("participant") Participant participant, Model model){
+        Survey survey = surveyService.getSurveyById(id);
+        Participant handler = participantService.findByDniAndSurvey(participant.getDni(),id);
+
+        if(handler == null){
+            participant.setKey(participant.generateSafeToken());
+            participant.setNsurvey(id);
+            participantService.saveParticipant(participant);
+            model.addAttribute("mensajeOK","Participante registrado correctamente.");
+        }
+        else model.addAttribute("mensajeKO","ERROR: El DNI ya está dado de alta para esta encuesta.");
+
+        model.addAttribute("survey",survey);
+        model.addAttribute("participant",participant);
+
+        return "create_participant";
+    }
+
     //RELLENAR ENCUESTA (USUARIOS)
     @GetMapping("/survey/{id}")
     public String doSurvey(@PathVariable("id") int id, Model model){
@@ -132,7 +162,6 @@ public class MainController {
     }
     @PostMapping("/survey/{id}")
     public String confirmSurvey(@PathVariable("id") int id, @ModelAttribute("result") ResultWrapper result, Model model){
-        System.out.println("Survey: "+id);
 
         result.getResultados().forEach(results -> {
             results.setSurvey(id);
@@ -141,8 +170,6 @@ public class MainController {
         Participant data = participantService.findByDniAndSurvey(result.getDni(),id);
         data.setFilled(true);
         data.setDateFilled(new Date());
-        System.out.println("Resultado despues: "+result);
-        System.out.println("Data final para insertar: "+data);
         return "survey";
     }
 }

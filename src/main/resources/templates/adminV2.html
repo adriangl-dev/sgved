@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SGVED Admin panel</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css">
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script>
+        $(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+            $(".side-nav .collapse").on("hide.bs.collapse", function() {
+                $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+            });
+            $('.side-nav .collapse').on("show.bs.collapse", function() {
+                $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
+            });
+        })
+
+        $(document).ready(function() {
+            $('#tabla_2').on('click', '.btnDetalles', function(){
+                var currentRow=$(this).closest("tr");
+                var col3=currentRow.find("td:eq(2)").text();
+                alert(col3);
+            });
+            $('#tabla_2').on('click', '.btnQuestions', function(){
+                var currentRow=$(this).closest("tr");
+                var col=currentRow.find("td:eq(0)").text();
+                window.open("http://localhost:8080/admin/add_question/"+col+"/","_blank");
+            });
+            $('#tabla_2').on('click', '.btnParticipants', function(){
+                var currentRow=$(this).closest("tr");
+                var col=currentRow.find("td:eq(0)").text();
+                window.open("http://localhost:8080/admin/add_participant/"+col+"/","_blank");
+            });
+            $('#tabla_2').on('click', '.btnStats', function(){
+                var currentRow=$(this).closest("tr");
+                var col=currentRow.find("td:eq(0)").text();
+                window.open("http://localhost:8080/admin/stats/"+col+"/","_blank");
+            });
+            $("#enlace1").click(function () {
+                $("#main").show();
+                $("#section_1").hide();
+                $("#section_2").hide();
+            });
+            $("#enlace2").click(function () {
+                $("#main").hide();
+                $("#section_1").hide();
+                $("#section_2").hide();
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: #10b467">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" >
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <h3 style="color: white">SGVED</h3>
+            </a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li><a data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
+            </a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin User <b class="fa fa-angle-down"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                    <li class="divider"></li>
+                    <li><a href="login"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="#" id="enlace1" style="color: white"><i class="fa fa-fw fa-user-plus"></i>  ENCUESTAS</a>
+                </li>
+                <li>
+                    <a href="admin/add_survey" target="_blank" id="enlace2" style="color: white"><i class="fas fa-plus"></i> NUEVA ENCUESTA</a>
+                </li>
+                <li>
+                    <a href="#" style="color: white"><i class="fa fa-fw fa fa-question-circle"></i> MENU 5</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row" id="main">
+                <div class="col-sm-12 col-md-12 well" id="content">
+                    <h1>Welcome Admin!</h1>
+                </div>
+                    <table class="table table-striped table-borderless" id="tabla_2"
+                           data-toggle="table"
+                           data-search="true"
+                           data-show-columns="true"
+                           data-show-export="true"
+                           data-pagination="true"
+                           data-page-list="[2, 5, 10, 100, all]">
+                        <thead>
+                        <tr>
+                            <th data-sortable="true">ID</th>
+                            <th data-sortable="true">Título</th>
+                            <th data-sortable="true">Descripción</th>
+                            <th>Editable</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="survey : ${surveys}">
+                            <td th:text="${survey.id}">Onions</td>
+                            <td th:text="${survey.title}">2.41</td>
+                            <td th:text="${survey.description}">yes</td>
+                            <td style="text-align: center"><input class="form-check-input" type="checkbox" id="defaultCheck1" th:checked="${survey.editable}" disabled></td>
+                            <td style="text-align: center">
+                                <a class="btnStats" href="#" title="Ver resultados"><i class="fas fa-chart-area"></i></a>
+                                <a class="btnDetalles" href="#" title="Ver detalle"><i class="fas fa-search-plus"></i></a>
+                                <a class="btnQuestions" href="#" title="Añadir preguntas"><i class="far fa-question-circle"></i></a>
+                                <a class="btnParticipants" href="#" title="Añadir participantes"><i class="fas fa-users"></i></a>
+                                <a  data-toggle="modal" data-target="#exampleModal" class="btnPublic" href="#" title="Publicar encuesta"><i class="fas fa-cloud-upload-alt"></i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmación de encuesta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Se va a publicar la encuesta. Una vez publicada, los datos no se podrán modificar (participantes, preguntas...). ¿Desea continuar?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Publicar encuesta!</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -25,7 +25,7 @@ public class Answer {
     private @Getter @Setter String text;
 
     @Transient
-    private @Getter @Setter String total = "0";
+    private @Getter @Setter int total = 0;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
