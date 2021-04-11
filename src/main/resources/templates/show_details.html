@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:spanth="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>SGVED Añadir participante</title>
+    <title>SGVED Encuesta en detalle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/owl.carousel.css">
@@ -10,6 +11,12 @@
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/animate.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/survey.css}">
+    <link rel="stylesheet" th:href="@{/css/stats.css}">
+
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js'></script>
+
 </head>
 <body>
 <div class="wrapper position-relative">
@@ -22,49 +29,50 @@
             </ul>
         </div>
         <div class="step-inner-content clearfix position-relative">
-            <form class="multisteps-form__form" action="" id="wizard" method="POST" th:object="${participant}">
+            <form class="multisteps-form__form" action="" id="wizard" method="POST">
                 <input type="hidden" name="count" value="0" />
                 <div class="form-area position-relative">
                     <div class="multisteps-form__panel  js-active" data-animation="fadeIn">
                         <div class="wizard-forms position-relative">
                             <div class="job-style-two-content d-flex">
                                 <div class="job-wizard-left-area position-relative">
-                                    <div class="job-wizard-left-text">
+                                    <div class="job-wizard-left-text" style="top: 350px;">
                                         <h1 th:text="${survey.title}">SGVED</h1>
                                         <p th:text="${survey.description}">Sistema de gestión de encuestas para docentes</p>
                                     </div>
                                 </div>
                                 <div class="job-wizard-right-area">
-                                    <div class="jw-top-title">
-                                        <h2>Añade un participante a la encuesta</h2>
-                                        <h6 th:if="${mensajeOK != null}" th:text="${mensajeOK}" id="mensajeOK" class="alert alert-success" role="alert">Mensaje OK</h6>
-                                        <h6 th:if="${mensajeKO != null}" th:text="${mensajeKO}" id="mensajeKO" class="alert alert-danger" role="alert">Mensaje KO</h6>
-                                    </div>
-                                    <div class="hire-company-form">
-                                        <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <input autocomplete="off" th:field="*{dni}" class="required" type="text" name="dni" placeholder="DNI" required>
+                                    <h5><a th:href="@{/survey/{id}(id=${survey.id})}" target="_blank" style="text-color: green;"><i class="fab fa-wpforms"></i>  Ver encuesta</a></h5>
+                                    <br><br><br>
+                                    <div th:each="question : ${survey.questions}">
+                                        <div class="jw-top-title">
+                                            <div style="float: left;"><h4 th:text="${question.text}">Titulo</h4></div>
+                                            <div style="float: right;">
+                                                <i class="fas fa-arrow-up"></i>
+                                                <i class="fas fa-arrow-down"></i>
+                                                <i class="fas fa-trash-alt"></i>
+                                            </div>
                                         </div>
-                                        <div class="form-group col-md-7">
-                                            <input th:field="*{email}" class="required" type="email" id="field0" name="prof1" placeholder="Correo electrónico" required>
-                                        </div>
+                                        <div class="hire-company-form">
+                                            <div class="row mt-20" th:each="answer,i : ${question.answers}">
+                                                <p th:text="${answer.text}" style="padding-left: 40px;">Respuesta</p>
+                                            </div>
                                         </div>
                                         <br><br>
-                                        <div class="upload-doc-area clearfix">
-                                            <div class="jw-doc-title">
-                                                <h2>Alta masiva de participantes</h2>
-                                                <p>( Ficheros aceptados: .csv - Tamaño máximo: 1mb. )</p>
-                                            </div>
-                                            <div class="custom-file">
-                                                <input type="file" name="doc_file" class="custom-file-input" id="customFile">
-                                                <label class="custom-file-label" for="customFile">No File Chosen</label>
-                                            </div>
+                                    </div>
+                                    <h6>Resumen listado de participantes</h6>
+                                    <br><br>
+                                    <div class="form-row" th:each="participant : ${participants}">
+                                        <div class="form-group col-md-4">
+                                            <span th:text="'DNI: '+${participant.dni}"></span><br>
+                                            <span th:text="'Email: '+${participant.email}"></span>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <span th:text="'Clave: '+${participant.key}"></span>
                                         </div>
                                     </div>
-
                                     <div class="actions">
                                         <ul>
-                                            <li><button type="submit"><span class="" title="Guardar participante">Añadir participante</span> </button></li>
                                             <li><button type="button" id="btnCerrar"><span class="" title="Cerrar">Cerrar</span> </button></li>
                                         </ul>
                                     </div>
@@ -93,33 +101,11 @@
 <script src="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/js/main.js"></script>
 <!-- <script src="assets/js/switch.js"></script> -->
 <script>
-		$("#customFile").change(function() {
-			filename = this.files[0].name
-		});
-		$(".custom-file-input").on("change", function() {
-			var fileName = $(this).val().split("\\").pop();
-			$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-		});
-
-		$(document).ready(function(){
-            var next = 0;
-            $('#mensajeOK').fadeOut(3000);
-            $('#mensajeKO').fadeOut(3000);
-            $(".add-more").click(function(e){
-                e.preventDefault();
-                var addto = "#field" + next;
-                next = next + 1;
-                var newIn = '<input autocomplete="off" th:field="*{answers['+next+'].text}" class="required" id="field' + next + '" name="answers[' + next + '].text" placeholder="Otra respuesta" type="text">';
-                var newInput = $(newIn);
-                $(addto).after(newInput);
-                $("#answersTemp" + next + ".text").attr('data-source',$(addto).attr('data-source'));
-                $("#count").val(next);
-            });
-
-            $("#btnCerrar").click(function(e){
-                window.close();
-            });
-        });
+$(document).ready(function() {
+    $("#btnCerrar").click(function(e){
+        window.close();
+    });
+});
 </script>
 </body>
 </html>

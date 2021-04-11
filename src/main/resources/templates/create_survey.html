@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Nueva encuesta</title>
+    <title>SGVED Nueva encuesta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/owl.carousel.css">
@@ -47,6 +47,7 @@
                                     <div class="actions">
                                         <ul>
                                             <li><button type="submit"><span class="" title="Confirmar encuesta">Confirmar encuesta</span> </button></li>
+                                            <li><button type="button" id="btnCerrar"><span class="" title="Cerrar">Cerrar</span> </button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -81,6 +82,10 @@
 			var fileName = $(this).val().split("\\").pop();
 			$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 		});
+
+		$("#btnCerrar").click(function(e){
+            window.close();
+        });
 </script>
 </body>
 </html>

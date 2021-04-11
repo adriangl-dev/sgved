@@ -53,7 +53,6 @@ public class MainController {
     //BLOQUE DE ADMIN
     @GetMapping("/admin")
     public String showAdmin(Model model){
-        model.addAttribute("users",userService.getAllUsers());
         model.addAttribute("surveys",surveyService.getAllSurveys());
         return "adminV2";
     }
@@ -76,17 +75,23 @@ public class MainController {
         return "show_stats";
     }
 
+    //DETALLE ENCUESTA
+    @GetMapping("/admin/details/{id}")
+    public String showDetails(@PathVariable("id") int id, Model model){
+        model.addAttribute("survey",surveyService.getSurveyById(id));
+        model.addAttribute("participants",participantService.findBySurvey(id));
+        return "show_details";
+    }
+
     //CREAR NUEVA ENCUESTA
     @GetMapping("/admin/add_survey")
     public String createSurvey(Model model){
         Survey survey = new Survey();
         model.addAttribute("survey",survey);
-
         return "create_survey";
     }
     @PostMapping("/admin/add_survey")
     public String saveSurvey(@ModelAttribute("survey") Survey survey, BindingResult br, Model model){
-        System.out.println(("Survey final: ")+survey.getTitle());
         surveyService.saveOrUpdate(survey);
         return "redirect:/admin";
     }
@@ -141,6 +146,7 @@ public class MainController {
             participant.setNsurvey(id);
             participantService.saveParticipant(participant);
             model.addAttribute("mensajeOK","Participante registrado correctamente.");
+            participant = new Participant();
         }
         else model.addAttribute("mensajeKO","ERROR: El DNI ya está dado de alta para esta encuesta.");
 
@@ -170,6 +176,7 @@ public class MainController {
         Participant data = participantService.findByDniAndSurvey(result.getDni(),id);
         data.setFilled(true);
         data.setDateFilled(new Date());
-        return "survey";
+        participantService.saveParticipant(data);
+        return "thanks";
     }
 }

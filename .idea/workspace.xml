@@ -5,19 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89cbfd78-8771-44aa-869f-b2730a70f481" name="Default Changelist" comment="Remodelado de tablas BD y objetos model.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/stats.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/adminV2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/show_stats.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/show_details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/thanks.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_5_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_5_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_5_0_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/APIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/APIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Answer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Participant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/model/QuestionWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/repository/ParticipantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/repository/ParticipantRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/service/ParticipantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/service/ParticipantService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/stats.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/stats.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminV2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminV2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_participant.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_participant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_question.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_survey.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_survey.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/show_stats.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/show_stats.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

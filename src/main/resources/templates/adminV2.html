@@ -27,8 +27,8 @@
         $(document).ready(function() {
             $('#tabla_2').on('click', '.btnDetalles', function(){
                 var currentRow=$(this).closest("tr");
-                var col3=currentRow.find("td:eq(2)").text();
-                alert(col3);
+                var col=currentRow.find("td:eq(0)").text();
+                window.open("http://localhost:8080/admin/details/"+col+"/","_blank");
             });
             $('#tabla_2').on('click', '.btnQuestions', function(){
                 var currentRow=$(this).closest("tr");
@@ -45,13 +45,19 @@
                 var col=currentRow.find("td:eq(0)").text();
                 window.open("http://localhost:8080/admin/stats/"+col+"/","_blank");
             });
+            $('#exampleModal').on('click', '.btnPublish', function(){
+                $.ajax({
+                    url:"http://localhost:8080/rest/publish/"+id+"/"
+                });
+                location.reload();
+            });
             $("#enlace1").click(function () {
                 $("#main").show();
                 $("#section_1").hide();
                 $("#section_2").hide();
             });
             $("#enlace2").click(function () {
-                $("#main").hide();
+                $("#main").show();
                 $("#section_1").hide();
                 $("#section_2").hide();
             });
@@ -95,13 +101,10 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="#" id="enlace1" style="color: white"><i class="fa fa-fw fa-user-plus"></i>  ENCUESTAS</a>
-                </li>
-                <li>
                     <a href="admin/add_survey" target="_blank" id="enlace2" style="color: white"><i class="fas fa-plus"></i> NUEVA ENCUESTA</a>
                 </li>
                 <li>
-                    <a href="#" style="color: white"><i class="fa fa-fw fa fa-question-circle"></i> MENU 5</a>
+                    <a href="#" style="color: white"><i class="fa fa-fw fa fa-question-circle"></i> AYUDA</a>
                 </li>
             </ul>
         </div>
@@ -171,7 +174,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Publicar encuesta!</button>
+                <button type="button" class="btn btn-primary btnPublish" id="btnPublish">Publicar encuesta!</button>
             </div>
         </div>
     </div>

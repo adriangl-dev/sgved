@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Añadir pregunta</title>
+    <title>SGVED Añadir pregunta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://jthemes.net/themes/html/BeWizard/Survey/Survey.V2/assets/css/owl.carousel.css">
@@ -49,6 +49,7 @@
                                     <div class="actions">
                                         <ul>
                                             <li><button type="submit"><span class="" title="Guardar pregunta">Guardar pregunta</span> </button></li>
+                                            <li><button type="button" id="btnCerrar"><span class="" title="Cerrar">Cerrar</span> </button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -96,6 +97,10 @@
                 $(addto).after(newInput);
                 $("#answersTemp" + next + ".text").attr('data-source',$(addto).attr('data-source'));
                 $("#count").val(next);
+            });
+
+            $("#btnCerrar").click(function(e){
+                window.close();
             });
         });
 </script>

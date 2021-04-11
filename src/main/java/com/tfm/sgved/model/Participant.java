@@ -17,6 +17,7 @@ import java.util.Date;
 public class Participant {
     @Id
     @Column
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
     @Column(name="NSURVEY")

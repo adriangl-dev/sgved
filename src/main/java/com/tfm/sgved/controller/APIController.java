@@ -39,4 +39,11 @@ public class APIController {
         if(data != null && key.equals(data.getKey()) && !data.isFilled()) res = "OK";
         return res;
     }
+
+    @GetMapping("rest/publish/{id}")
+    public void publishSurvey(@PathVariable("id") int id){
+        Survey survey = surveyService.getSurveyById(id);
+        survey.setEditable(false);
+        surveyService.saveOrUpdate(survey);
+    }
 }
