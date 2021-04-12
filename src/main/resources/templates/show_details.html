@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                                 <div class="job-wizard-right-area">
-                                    <h5><a th:href="@{/survey/{id}(id=${survey.id})}" target="_blank" style="text-color: green;"><i class="fab fa-wpforms"></i>  Ver encuesta</a></h5>
+                                    <h5><a th:href="@{/survey/{id}(id=${survey.id})}" target="_blank" style="text-color: green;"><i class="fab fa-wpforms"></i>  <u>Ver enlace de encuesta online</u></a></h5>
                                     <br><br><br>
                                     <div th:each="question : ${survey.questions}">
                                         <div class="jw-top-title">
@@ -53,6 +53,7 @@
                                                 <i class="fas fa-trash-alt"></i>
                                             </div>
                                         </div>
+                                        <div>&nbsp;</div>
                                         <div class="hire-company-form">
                                             <div class="row mt-20" th:each="answer,i : ${question.answers}">
                                                 <p th:text="${answer.text}" style="padding-left: 40px;">Respuesta</p>
@@ -60,7 +61,7 @@
                                         </div>
                                         <br><br>
                                     </div>
-                                    <h6>Resumen listado de participantes</h6>
+                                    <h6><u>Resumen listado de participantes</u></h6>
                                     <br><br>
                                     <div class="form-row" th:each="participant : ${participants}">
                                         <div class="form-group col-md-4">
