@@ -36,7 +36,8 @@ public class APIController {
     private String checkAuth(@PathVariable("dni") String dni, @PathVariable("key") String key, @PathVariable("survey") int nsurvey){
         String res = "KO";
         Participant data = participantService.findByDniAndSurvey(dni,nsurvey);
-        if(data != null && key.equals(data.getKey()) && !data.isFilled()) res = "OK";
+        Survey survey = surveyService.getSurveyById(nsurvey);
+        if(data != null && key.equals(data.getKey()) && !data.isFilled() && !survey.isEditable()) res = "OK";
         return res;
     }
 

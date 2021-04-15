@@ -53,7 +53,7 @@
                                     <div class="survey-reccomend-area-3">
                                         <div class="jw-top-title">
                                             <h2>Introduce tus credenciales recibidas por correo</h2>
-                                            <h6 id="aviso_rest" class="alert alert-danger">El DNI y/o clave introducidos no están registrados para esta encuesta.</h6>
+                                            <h6 id="aviso_rest" class="alert alert-danger">El DNI y/o clave introducidos no están registrados para esta encuesta o la encuesta aun no está publicada.</h6>
                                         </div>
                                         <div class="details-form-area">
                                             <div class="row">
@@ -111,11 +111,10 @@
                                         </h1>
                                         <p th:text="${survey.description}">Descripcion</p>
                                     </div>
-                                    <span class="w-copyright position-absolute">©2020 BeWizard</span>
                                 </div>
                                 <div class="job-wizard-right-area survey-right-content-1">
                                     <div class="jw-top-title">
-                                        <span th:text="${iter.index+1}+' of '+${iter.size}+' Answered'">1 of 5 Answered</span>
+                                        <span th:text="'Pregunta '+${iter.index+1}+' de '+${iter.size}">1 of 5 Answered</span>
                                         <h2 th:text="${questions.text}">¿Pregunta?</h2>
                                         <input type="radio" th:value="${questions.id}" class="radio_hidden" th:field="*{resultados[__${iter.index}__].question}" checked="true">
                                     </div>
@@ -134,12 +133,12 @@
                                         </ul>
                                     </div>
                                     <div class="additional-reccomend">
-                                        <textarea placeholder="Additional message"></textarea>
+                                        <textarea placeholder="Texto adicional"></textarea>
                                     </div>
                                     <div class="actions">
                                         <ul>
-                                            <li th:if="${iter.index != 0}"><span class="js-btn-prev" title="PREV">Previous Question</span></li>
-                                            <li th:if="${iter.index+1 != iter.size}"><span class="js-btn-next" title="NEXT">Next Question</span></li>
+                                            <li th:if="${iter.index != 0}"><span class="js-btn-prev" title="PREV">Anterior</span></li>
+                                            <li th:if="${iter.index+1 != iter.size}"><span class="js-btn-next" title="NEXT">Siguiente</span></li>
                                             <li th:if="${iter.index+1 == iter.size}"><button type="submit" class="" title="Send">Finalizar</button></li>
                                         </ul>
                                     </div>

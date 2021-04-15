@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89cbfd78-8771-44aa-869f-b2730a70f481" name="Default Changelist" comment="Remodelado de tablas BD y objetos model.">
+    <list default="true" id="89cbfd78-8771-44aa-869f-b2730a70f481" name="Default Changelist" comment="Limpieza de BD. Modificaciones de front.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/es_ES.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/APIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tfm/sgved/controller/APIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/survey.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/survey.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminV2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminV2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_participant.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_participant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/show_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/show_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/survey.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/survey.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/thanks.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/thanks.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618164853355</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Limpieza de BD. Modificaciones de front.">
+      <created>1618254854646</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1618254854646</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,7 +255,8 @@
     <MESSAGE value="Alta de encuestas + preguntas." />
     <MESSAGE value="Maquetado final create_question.html" />
     <MESSAGE value="Botones de cerrar en nuevas pestañas. Nueva página detalles. Nuevo servicio rest para publicar encuestas. Auto incremental en participant." />
-    <option name="LAST_COMMIT_MESSAGE" value="Botones de cerrar en nuevas pestañas. Nueva página detalles. Nuevo servicio rest para publicar encuestas. Auto incremental en participant." />
+    <MESSAGE value="Limpieza de BD. Modificaciones de front." />
+    <option name="LAST_COMMIT_MESSAGE" value="Limpieza de BD. Modificaciones de front." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

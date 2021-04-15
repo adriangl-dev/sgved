@@ -13,6 +13,7 @@
     <script type="text/javascript" src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/es_ES.js}"></script>
     <script>
         $(function(){
             $('[data-toggle="tooltip"]').tooltip();
@@ -46,10 +47,18 @@
                 window.open("http://localhost:8080/admin/stats/"+col+"/","_blank");
             });
             $('#exampleModal').on('click', '.btnPublish', function(){
+                var id = $('input#surveyId').val();
                 $.ajax({
-                    url:"http://localhost:8080/rest/publish/"+id+"/"
+                    url:"http://localhost:8080/rest/publish/"+id+"/",
+                    success:function(response){
+                        location.reload();
+                    }
                 });
-                location.reload();
+            });
+            $('#tabla_2').on('click', '.btnPrevPublish', function(){
+                var currentRow=$(this).closest("tr");
+                var col=currentRow.find("td:eq(0)").text();
+                $('input#surveyId').val(col);
             });
             $("#enlace1").click(function () {
                 $("#main").show();
@@ -115,15 +124,18 @@
         <div class="container-fluid">
             <!-- Page Heading -->
             <div class="row" id="main">
+                <form>
                 <div class="col-sm-12 col-md-12 well" id="content">
                     <h1>Bienvenido administrador!</h1>
                 </div>
+                    <input type="hidden" name="surveyId" id="surveyId" value ="prueba">
                     <table class="table table-striped table-borderless" id="tabla_2"
                            data-toggle="table"
                            data-search="true"
                            data-show-columns="true"
                            data-show-export="true"
                            data-pagination="true"
+                           data-locale="es-ES"
                            data-page-list="[2, 5, 10, 100, all]">
                         <thead>
                         <tr>
@@ -143,13 +155,14 @@
                             <td style="text-align: center">
                                 <a class="btnStats" href="#" title="Ver resultados"><i class="fas fa-chart-area"></i></a>
                                 <a class="btnDetalles" href="#" title="Ver detalle"><i class="fas fa-search-plus"></i></a>
-                                <a class="btnQuestions" href="#" title="Añadir preguntas"><i class="far fa-question-circle"></i></a>
-                                <a class="btnParticipants" href="#" title="Añadir participantes"><i class="fas fa-users"></i></a>
-                                <a  data-toggle="modal" data-target="#exampleModal" class="btnPublic" href="#" title="Publicar encuesta"><i class="fas fa-cloud-upload-alt"></i></a>
+                                <a th:if="${survey.editable}" class="btnQuestions" href="#" title="Añadir preguntas"><i class="far fa-question-circle"></i></a>
+                                <a th:if="${survey.editable}" class="btnParticipants" href="#" title="Añadir participantes"><i class="fas fa-users"></i></a>
+                                <a th:if="${survey.editable}" data-toggle="modal" data-target="#exampleModal" class="btnPrevPublish" href="#" title="Publicar encuesta"><i class="fas fa-cloud-upload-alt"></i></a>
                             </td>
                         </tr>
                         </tbody>
                     </table>
+
             </div>
             <!-- /.row -->
         </div>
@@ -179,5 +192,6 @@
         </div>
     </div>
 </div>
+</form>
 </body>
 </html>
