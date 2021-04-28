@@ -29,27 +29,31 @@
             $('#tabla_2').on('click', '.btnDetalles', function(){
                 var currentRow=$(this).closest("tr");
                 var col=currentRow.find("td:eq(0)").text();
-                window.open("http://localhost:8080/admin/details/"+col+"/","_blank");
+                window.open(location.origin + location.pathname + "details/"+col+"/","_blank");
             });
             $('#tabla_2').on('click', '.btnQuestions', function(){
                 var currentRow=$(this).closest("tr");
                 var col=currentRow.find("td:eq(0)").text();
-                window.open("http://localhost:8080/admin/add_question/"+col+"/","_blank");
+                window.open(location.origin + location.pathname + "add_question/"+col+"/","_blank");
             });
             $('#tabla_2').on('click', '.btnParticipants', function(){
                 var currentRow=$(this).closest("tr");
                 var col=currentRow.find("td:eq(0)").text();
-                window.open("http://localhost:8080/admin/add_participant/"+col+"/","_blank");
+                window.open(location.origin + location.pathname + "add_participant/"+col+"/","_blank");
             });
             $('#tabla_2').on('click', '.btnStats', function(){
                 var currentRow=$(this).closest("tr");
                 var col=currentRow.find("td:eq(0)").text();
-                window.open("http://localhost:8080/admin/stats/"+col+"/","_blank");
+                window.open(location.origin + location.pathname + "stats/"+col+"/","_blank");
             });
             $('#exampleModal').on('click', '.btnPublish', function(){
                 var id = $('input#surveyId').val();
+                var array = location.pathname.split("/");
+                var rest_url = "";
+                if(array.length > 2 && array[1] == "sgved") rest_url = location.origin + "/sgved/rest/publish/"+id+"/";
+                else rest_url = location.origin + "/rest/publish/"+id+"/";
                 $.ajax({
-                    url:"http://localhost:8080/rest/publish/"+id+"/",
+                    url:rest_url,
                     success:function(response){
                         location.reload();
                     }
@@ -74,6 +78,7 @@
     </script>
 </head>
 <body>
+<form>
 <div id="throbber" style="display:none; min-height:120px;"></div>
 <div id="noty-holder"></div>
 <div id="wrapper">
@@ -110,7 +115,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="admin/add_survey" target="_blank" id="enlace2" style="color: white"><i class="fas fa-plus"></i> NUEVA ENCUESTA</a>
+                    <a th:href="@{/admin/add_survey/}" target="_blank" id="enlace2" style="color: white"><i class="fas fa-plus"></i> NUEVA ENCUESTA</a>
                 </li>
                 <li>
                     <a href="#" style="color: white"><i class="fa fa-fw fa fa-question-circle"></i> AYUDA</a>
@@ -124,7 +129,7 @@
         <div class="container-fluid">
             <!-- Page Heading -->
             <div class="row" id="main">
-                <form>
+
                 <div class="col-sm-12 col-md-12 well" id="content">
                     <h1>Bienvenido administrador!</h1>
                 </div>
@@ -162,7 +167,6 @@
                         </tr>
                         </tbody>
                     </table>
-
             </div>
             <!-- /.row -->
         </div>

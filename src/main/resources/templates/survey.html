@@ -183,8 +183,12 @@
 				    var dni = $("#dni").val();
 				    var key = $("#key").val();
 				    var survey = $('#idsurvey_hidden').val();
+				    var array = location.pathname.split("/");
+				    var rest_url = "";
+				    if(array.length > 2 && array[1] == "sgved") rest_url = location.origin + "/sgved/rest/check_auth/"+dni+"/"+key+"/"+survey;
+				    else rest_url = location.origin + "/rest/check_auth/"+dni+"/"+key+"/"+survey;
                     $.ajax({
-                            url:"http://localhost:8080/rest/check_auth/"+dni+"/"+key+"/"+survey,
+                            url:rest_url,
                             success:function(response){
                                 if(response == "OK"){
                                     console.log("LOGEADO OK");
