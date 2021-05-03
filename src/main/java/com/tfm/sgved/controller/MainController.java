@@ -84,13 +84,13 @@ public class MainController {
     }
 
     //CREAR NUEVA ENCUESTA
-    @GetMapping("/admin/add_survey")
+    @GetMapping({"/admin/add_survey", "/sgved/add_survey"})
     public String createSurvey(Model model){
         Survey survey = new Survey();
         model.addAttribute("survey",survey);
         return "create_survey";
     }
-    @PostMapping("/admin/add_survey")
+    @PostMapping({"/admin/add_survey", "/sgved/add_survey"})
     public String saveSurvey(@ModelAttribute("survey") Survey survey, BindingResult br, Model model){
         surveyService.saveOrUpdate(survey);
         return "redirect:/admin";
