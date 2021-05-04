@@ -9,10 +9,20 @@ SGVED consta de las siguientes tecnologías:
 - jQuery 3.6.0
 - H2 Database 
 - Thymeleaf
+- Caddy
+- Docker
 
 ## Instalación
+```bash
+## Nos descargamos la configuración desde git
+git clone https://github.com/obus08/sgved.git
 
+## Accedemos a la carpeta del proyecto.
+cd sgved/
 
+## Montamos e iniciamos los contenedores.
+docker compose up
+```
 
 ## Uso
 
