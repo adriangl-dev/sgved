@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89cbfd78-8771-44aa-869f-b2730a70f481" name="Default Changelist" comment="Limpieza de BD. Modificaciones de front.">
-      <change afterPath="$PROJECT_DIR$/Caddyfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile.tomcat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/sgved.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/sgved.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caddyfile" beforeDir="false" afterPath="$PROJECT_DIR$/Caddyfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/bd_sgved.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +83,9 @@
   </component>
   <component name="RunManager">
     <configuration name="SgvedApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="DB_PATH" value="./src/main/resources/data/bd_sgved" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="com.tfm.sgved.SgvedApplication" />
       <module name="sgved" />
       <extension name="coverage">
@@ -172,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620066543597</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Se añade Caddy como servidor web.">
+      <created>1620078063223</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1620078063223</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,7 +286,8 @@
     <MESSAGE value="Limpieza de BD. Modificaciones de front." />
     <MESSAGE value="Se dockeriza el proyecto. OJO al properties al ejecutar en local." />
     <MESSAGE value="Fix para docker remoto." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix para docker remoto." />
+    <MESSAGE value="Se añade Caddy como servidor web." />
+    <option name="LAST_COMMIT_MESSAGE" value="Se añade Caddy como servidor web." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

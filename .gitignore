@@ -3,7 +3,9 @@
 /target/generated-test-sources/
 /target/maven-archiver/
 /target/maven-status/
-/target/sgved-0.0.1-SNAPSHOT/
+/target/sgved/
+/target/sgved-*
 /target/surefire-reports/
 /target/test-classes/
 /target/
+/target/*original
