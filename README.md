@@ -28,7 +28,7 @@ docker compose up -d ## Iniciamos los contenedores
 
 Accede a la URL siguiente desde el navegador
  
- htttp://localhost/
+ http://localhost/
 
 ![image](https://user-images.githubusercontent.com/2179475/117725558-962b9d80-b1e5-11eb-8526-cd784e86d886.png)
 
