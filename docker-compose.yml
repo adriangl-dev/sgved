@@ -11,7 +11,7 @@ services:
       - sgved
   sgved-caddy:
     container_name: sgved-caddy
-    image: caddy:2.3.0-alpine
+    image: caddy:2.7.4-alpine
     restart: unless-stopped
     ports:
       - 80:80
@@ -22,4 +22,3 @@ services:
       - sgved
 networks:
   sgved:
-    driver: bridge
