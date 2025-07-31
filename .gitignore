@@ -1,11 +1,17 @@
-/target/classes/
-/target/generated-sources/
-/target/generated-test-sources/
-/target/maven-archiver/
-/target/maven-status/
-/target/sgved/
-/target/sgved-*
-/target/surefire-reports/
-/target/test-classes/
+# Maven target directory (build output)
 /target/
-/target/*original
+target/
+
+# IDE specific files
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# OS specific files
+.DS_Store
+Thumbs.db
