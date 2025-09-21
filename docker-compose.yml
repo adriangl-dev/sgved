@@ -1,8 +1,7 @@
-version: '3'
-
 services:
   sgved-java:
-    image: adriangl/sgved-java:latest
+    image: sgved-java:latest
+    build: .
     container_name: sgved-java
     restart: unless-stopped
     ports:

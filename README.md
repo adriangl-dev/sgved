@@ -19,11 +19,22 @@ git clone https://github.com/adriangl-dev/sgved.git ## Nos descargamos la config
 ```bash
 cd sgved/ ## Accedemos a la carpeta del proyecto.
 ```
-
+# Opción 1. reverse proxy
 ```bash
 docker compose up -d ## Iniciamos los contenedores
 ```
 
+# Opción 2. Tomcat
+```bash
+<packaging>war</packaging> ##Añadimos esta linea al pom
+```
+```bash
+docker build -f Dockerfile.tomcat -t sgved-tomcat .
+```
+
+```bash
+docker run -d -p 8080:8080 -e DB_PATH=/data/bd_sgved --name sgved-tomcat sgved-tomcat
+```
 ## Uso
 
 Accede a la URL siguiente desde el navegador
